@@ -124,3 +124,22 @@ grails.plugin.springsecurity.authority.className = 'org.disektea.Role'
 grails.plugin.springsecurity.requestMap.className = 'org.disektea.Requestmap'
 grails.plugin.springsecurity.securityConfigType = 'Requestmap'
 
+
+
+// Added by the Spring Security Core plugin:
+grails.plugin.springsecurity.userLookup.userDomainClassName = 'org.disektea.User'
+grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'org.disektea.UserRole'
+grails.plugin.springsecurity.authority.className = 'org.disektea.Role'
+grails.plugin.springsecurity.requestMap.className = 'org.disektea.Requestmap'
+grails.plugin.springsecurity.securityConfigType = 'Requestmap'
+grails.plugin.springsecurity.controllerAnnotations.staticRules = [
+	'/':                              ['permitAll'],
+	'/index':                         ['permitAll'],
+	'/index.gsp':                     ['permitAll'],
+	'/assets/**':                     ['permitAll'],
+	'/**/js/**':                      ['permitAll'],
+	'/**/css/**':                     ['permitAll'],
+	'/**/images/**':                  ['permitAll'],
+	'/**/favicon.ico':                ['permitAll']
+]
+

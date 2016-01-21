@@ -2,47 +2,41 @@ package org.disektea
 
 class User {
 
-    transient springSecurityService
+	transient springSecurityService
 
-    String username
+	String username
+	String password
+	boolean enabled = true
+	boolean accountExpired
+	boolean accountLocked
+	boolean passwordExpired
 
-    String password
+	static transients = ['springSecurityService']
 
-    boolean enabled = true
+	static constraints = {
+		username blank: false, unique: true
+		password blank: false
+	}
 
-    boolean accountExpired
+	static mapping = {
+		password column: '`password`'
+	}
 
-    boolean accountLocked
+	Set<Role> getAuthorities() {
+		UserRole.findAllByUser(this).collect { it.role }
+	}
 
-    boolean passwordExpired
+	def beforeInsert() {
+		encodePassword()
+	}
 
-    static transients = ['springSecurityService']
+	def beforeUpdate() {
+		if (isDirty('password')) {
+			encodePassword()
+		}
+	}
 
-    static constraints = {
-        username blank: false, unique: true
-        password blank: false
-    }
-
-    static mapping = {
-        table '`user`'
-        password column: '`password`'
-    }
-
-    Set<Role> getAuthorities () {
-        UserRole.findAllByUser(this).collect { it.role }
-    }
-
-    def beforeInsert () {
-        encodePassword()
-    }
-
-    def beforeUpdate () {
-        if(isDirty('password')) {
-            encodePassword()
-        }
-    }
-
-    protected void encodePassword () {
-        password = springSecurityService?.passwordEncoder ? springSecurityService.encodePassword(password) : password
-    }
+	protected void encodePassword() {
+		password = springSecurityService?.passwordEncoder ? springSecurityService.encodePassword(password) : password
+	}
 }
