@@ -1,6 +1,6 @@
 package org.disektea
 
-class User {
+class User extends AbstractDomain {
 
     transient springSecurityService
 

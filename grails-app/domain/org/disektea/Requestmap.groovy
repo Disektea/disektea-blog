@@ -2,7 +2,7 @@ package org.disektea
 
 import org.springframework.http.HttpMethod
 
-class Requestmap {
+class Requestmap extends AbstractDomain {
 
     String url
 

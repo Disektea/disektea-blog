@@ -1,6 +1,6 @@
 package org.disektea
 
-class Blog {
+class Blog extends AbstractDomain {
 
     String title
     String description

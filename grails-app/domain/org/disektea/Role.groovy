@@ -1,6 +1,6 @@
 package org.disektea
 
-class Role {
+class Role extends AbstractDomain {
 
     String authority
 
