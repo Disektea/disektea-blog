@@ -69,7 +69,7 @@ grails.project.dependency.resolution = {
         runtime ":jquery:1.11.1"
 
         // Spring Security Core plug-in for Grails
-        compile ":spring-security-core:2.0-RC4"
+        compile ":spring-security-core:2.0.0"
 
         // Uncomment these to enable additional asset-pipeline capabilities
         //compile ":sass-asset-pipeline:1.9.0"
