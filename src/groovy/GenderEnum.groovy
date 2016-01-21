@@ -6,5 +6,5 @@ package org.disektea;
 enum GenderEnum {
 
     MALE, FEMALE
-    
+
 }
