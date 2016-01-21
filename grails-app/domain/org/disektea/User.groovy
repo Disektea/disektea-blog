@@ -10,11 +10,11 @@ class User {
 
     boolean enabled = true
 
-    boolean accountExpired
+    boolean accountExpired = false
 
-    boolean accountLocked
+    boolean accountLocked = false
 
-    boolean passwordExpired
+    boolean passwordExpired = false
 
     static transients = ['springSecurityService']
 

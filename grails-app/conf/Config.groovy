@@ -124,3 +124,6 @@ grails.plugin.springsecurity.authority.className = 'org.disektea.Role'
 grails.plugin.springsecurity.requestMap.className = 'org.disektea.Requestmap'
 grails.plugin.springsecurity.securityConfigType = 'Requestmap'
 
+// Additional SpringSecurity Configurations
+// Enable logout without using HTTP method POST
+grails.plugin.springsecurity.logout.postOnly = false

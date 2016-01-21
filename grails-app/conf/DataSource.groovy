@@ -23,7 +23,7 @@ environments {
             password = "disektea"
         }
     }
-    test {
+    test {ss
         dataSource {
             dbCreate = "update"
             url = "jdbc:postgresql://ec2-54-217-208-102.eu-west-1.compute.amazonaws.com:5432/d9ielq8pokeai4?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory"
