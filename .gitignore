@@ -1,5 +1,6 @@
 .idea/
 .slcache/
+.asscache
 *.iws
 /target/
 *.iml
