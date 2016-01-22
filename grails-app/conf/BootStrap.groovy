@@ -1,3 +1,5 @@
+import grails.util.Environment
+import org.disektea.Blog
 import org.disektea.GenderEnum
 import org.disektea.Requestmap
 import org.disektea.User
@@ -17,9 +19,18 @@ class BootStrap {
             Requestmap.findOrSaveByUrlAndConfigAttribute(url, 'permitAll').save(flush: true, failOnError: true)
         }
 
-        new User(username: 'admin', password: 'password',firstName: 'Abebe',lastName: 'Kebede',email: 'abebe@gmail.com',sex: GenderEnum.MALE).save(flush: true, failOnError: true)
+        println Environment.getCurrent()
 
-        println "Bootstrap is done."
+        if (Environment.getCurrent() != Environment.PRODUCTION) {
+
+            Blog blog = Blog.findOrSaveByTitleAndDescription('My blog', 'my blog description ...').save(flush: true, failOnError: true)
+
+            User.findOrSaveByUsernameAndPasswordAndFirstNameAndLastNameAndEmailAndGenderAndBlog(
+                    'admin', 'password', 'Abebe', 'Kebede', 'abebe@gmail.com', GenderEnum.MALE, blog
+            ).save(flush: true, failOnError: true)
+
+            println "Bootstrap is done."
+        }
     }
 
     def destroy = {
