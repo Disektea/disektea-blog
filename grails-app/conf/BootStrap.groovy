@@ -1,3 +1,4 @@
+import org.disektea.GenderEnum
 import org.disektea.Requestmap
 import org.disektea.User
 
@@ -16,7 +17,7 @@ class BootStrap {
             Requestmap.findOrSaveByUrlAndConfigAttribute(url, 'permitAll').save(flush: true, failOnError: true)
         }
 
-        new User(username: 'admin', password: 'password').save(flush: true, failOnError: true)
+        new User(username: 'admin', password: 'password',firstName: 'Abebe',lastName: 'Kebede',email: 'abebe@gmail.com',sex: GenderEnum.MALE).save(flush: true, failOnError: true)
 
         println "Bootstrap is done."
     }

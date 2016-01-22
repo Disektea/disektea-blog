@@ -4,18 +4,18 @@ class User extends AbstractDomain {
 
 	transient springSecurityService
 
-	String username
-	String password
-	boolean enabled = true
-    boolean accountExpired = false
-    boolean accountLocked = false
-    boolean passwordExpired = false
+	String username, password, firstName, lastName, email, address = "", blogTitle = "", blogDescription = ""
+	boolean enabled = true, accountExpired = false, accountLocked = false, passwordExpired = false
+    GenderEnum sex
 
     static transients = ['springSecurityService']
 
     static constraints = {
         username blank: false, unique: true
         password blank: false
+        address blank: true
+        blogTitle blank: true
+        blogDescription blank: true
     }
 
     static mapping = {
