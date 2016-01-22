@@ -16,7 +16,8 @@ class BootStrap {
             Requestmap.findOrSaveByUrlAndConfigAttribute(url, 'permitAll').save(flush: true, failOnError: true)
         }
 
-        new User(username: 'admin', password: 'password').save(flush: true, failOnError: true)
+        User.findOrSaveByUsernameAndPassword('admin', 'password').save(flush: true, failOnError: true)
+        //new User(username: 'admin', password: 'password').save(flush: true, failOnError: true)
 
         println "Bootstrap is done."
     }
