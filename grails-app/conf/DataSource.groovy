@@ -23,18 +23,18 @@ environments {
             password = "disektea"
         }
     }
-    test {ss
+    test {
         dataSource {
             dbCreate = "update"
-            url = "jdbc:postgresql://ec2-54-217-208-102.eu-west-1.compute.amazonaws.com:5432/d9ielq8pokeai4?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory"
-            username = "jgwypzkgqtgqfn"
-            password = "kGRBz6FgRhW3ScMSSJ02BcJfhH"
+            url = "jdbc:postgresql://ec2-54-195-252-202.eu-west-1.compute.amazonaws.com:5432/d8aucno7k9hdob?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory"
+            username = "jewszvqwuzilfh"
+            password = "JIEovrwNuJ94kitsq0BpUhVuAD"
         }
     }
     production {
         dataSource {
             dbCreate = "update"
-            uri = new URI(System.env.DATABASE_URL?:"postgres://jgwypzkgqtgqfn:kGRBz6FgRhW3ScMSSJ02BcJfhH@ec2-54-217-208-102.eu-west-1.compute.amazonaws.com:5432/d9ielq8pokeai4")
+            uri = new URI(System.env.DATABASE_URL?:"postgres://jdsgxvfryzbbdz:Bz0EOSf3LGvhS4jgEIaMzxjihh@ec2-54-217-231-152.eu-west-1.compute.amazonaws.com:5432/demmok54t9na9m")
             url = "jdbc:postgresql://" + uri.host + ":" + uri.port + uri.path
             username = uri.userInfo.split(":")[0]
             password = uri.userInfo.split(":")[1]
